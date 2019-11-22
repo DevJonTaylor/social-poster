@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Social Poster ![Current Version](https://img.shields.io/badge/Social%20Post_v0.0.1-blueviolet)
+This project is initially thought out and is being created as a replacement for my wife "A Social Media Manager" and we'll see where it goes from there.  The ideal features should look something like this
+* Clients
+	* Unlimited clients
+	* Ability to have view a specific client
+	* Ability to see all clients.
+	* Ability to search for a specific list of clients
+* Platforms
+	* Facebook
+	* Twitter
+	* LinkedIn
+* Automation
+	* Scheduling
+	* Updating
+	* Alerts
+		* Successful
+		* One Time Alerts
+		* Errors
+		* Unsuccessful
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This will be a long term project and welcome all contributors and feel free to take, reuse, re-purpose, submit errors, tickets, or just to say hi I am down for conversation.  =)
+  
+## Direction of Stack
+* Frontend
+	* **1React
+	* UIKit
+		* SCSS Tree shaking
+	* React-Icons
+	* Lodash
+	* **2 SocketIO
+	* **2 axios
+* Backend
+	* SocketIO
+	* MongoDB (Scheduling, queuing, emails, alerts)
+	* MySQL (Primary Storage, "Clients, tokens, previous attempts/successful posts, etc)
+	* Express
+	* Linux
+	* Nginx "mainly for reverse proxy"
+  
+ **1 I switch to VueJS as I have a great deal more experience using Vue.  I choose React as a passion to learn it more in detail.
+ **2 I added both SocketIO and axios as React development environment already uses a WebSocket for hot-updates so axios will be a fall back if for some reason cannot get SocketIO to function properly.
+ 
+ ## Roadmap 
+ ### Version 0.0.1
+ * [x] Setup React-Create-App
+ * [ ] Setup Mock API Server
+ * [ ] Setup SocketIO
+ * [ ] Setup MySQL
+ * [ ] Setup MongoDB
+ * [ ] Setup Virtual Machine for ideal end-game server
+ * [ ] Design Login Process
+ * [ ] Design Registration Process
