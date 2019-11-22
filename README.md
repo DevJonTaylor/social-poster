@@ -43,8 +43,8 @@ This will be a long term project and welcome all contributors and feel free to t
  ## Roadmap 
  ### Version 0.0.1
  * [x] Setup React-Create-App
- * [ ] Setup Mock API Server
- * [ ] Setup SocketIO
+ * [x] Setup Mock API Server
+ * [x] Setup SocketIO
  * [ ] Setup MySQL
  * [ ] Setup MongoDB
  * [ ] Setup Virtual Machine for ideal end-game server

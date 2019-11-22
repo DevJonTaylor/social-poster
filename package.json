@@ -9,7 +9,8 @@
     "react-dom": "^16.12.0",
     "react-icons": "^3.8.0",
     "react-scripts": "3.2.0",
-    "socketio": "^1.0.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
     "uikit": "^3.2.3"
   },
   "scripts": {
