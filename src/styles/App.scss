@@ -1,0 +1,84 @@
+@import "./ImportFont";
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat&display=swap');
+
+// 1. Your custom variables and variable overwrites.
+$color-pallet-1: #19eef1;
+$color-pallet-2: #05b7ed;
+$color-pallet-3: #fa6ef5;
+$color-pallet-4: #940e8c;
+$color-pallet-5: #531499;
+$color-pallet-6: #260962;
+$global-link-color: $color-pallet-1;
+$global-font-family: Montserrat, Lato, sans-serif;
+// 2. Import default variables and available mixins.
+@import "~uikit/src/scss/variables-theme";
+@import "~uikit/src/scss/mixins-theme";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+// 4. Import UIkit.
+@import "~uikit/src/scss/uikit-theme";
+
+// Custom Mixins
+@import "./Mixins/Custom";
+
+// NavBar Setup
+.sp-nav {
+  @extend .uk-container-expand;
+  nav.not-user {
+    a {
+      @include font-smoothing;
+      height: 80px;
+      font-weight: bolder;
+      line-height: 2.3;
+      text-align: center;
+      font-size: xx-large;
+      transition: all 250ms ease-in-out;
+    }
+    a:first-child {
+      background: $color-pallet-5;
+      color: $color-pallet-3;
+    }
+    a:first-child:hover {
+      text-decoration: none;
+      color: tint($color-pallet-3, 10);
+      background: tint($color-pallet-5, 10);
+    }
+    a:first-child:active {
+      color: shade($color-pallet-3, 10);
+      background: shade($color-pallet-5, 10);
+    }
+    a:last-child {
+      color: $color-pallet-3;
+      background: $color-pallet-6;
+    }
+    a:last-child:hover {
+      text-decoration: none;
+      color: tint($color-pallet-3, 10);
+      background: tint($color-pallet-6, 10);
+    }
+    a:last-child:active {
+      color: shade($color-pallet-3, 10);
+      background: shade($color-pallet-6, 10);
+    }
+  }
+  nav.user {
+    span:first-child {
+
+    }
+    span:nth-child(2) {
+
+    }
+    span:nth-child(3) {
+
+    }
+    span:last-child {
+
+    }
+  }
+    // TODO:  First Child Design, Reaction
+    // TODO:  Second Child Design, Reaction
+    // TODO:  Third Child Design, Reaction
+    // TODO:  Forth Child Design, Reaction
+}

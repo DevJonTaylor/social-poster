@@ -1,0 +1,19 @@
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function shade(
+  $color,
+  $percent
+) {
+
+  @return mix(#000, $color, $percent);
+}
+@function tint(
+  $color,
+  $percent
+) {
+
+  @return mix(#fff, $color, $percent);
+}

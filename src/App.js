@@ -1,16 +1,25 @@
-import React from 'react';
-import openSocket from 'socket.io-client';
-import './App.css';
+import React, { useState } from 'react';
+//import openSocket from 'socket.io-client';
+import UIkit from 'uikit';
+import UkIcons from 'uikit/dist/js/uikit-icons.min';
+import './styles/App.scss';
+import NavBar from "./components/Navbar";
+import { BrowserRouter, } from "react-router-dom";
 
-const socket = openSocket('http://localhost:3001');
+UIkit.use(UkIcons);
+window.UIkit = UIkit;
 
-socket.on('response', resp => console.log(resp));
-socket.emit('howdy');
+//const socket = openSocket('http://localhost:3001');
 
 function App() {
+  const [isUser] = useState(false);
+
   return (
     <div className="App">
-      Howdy!!
+      <BrowserRouter>
+        <NavBar isUserLoggedIn={isUser}/>
+        <PageToDisplay isUserLoggedIn={isUser}/>
+      </BrowserRouter>
     </div>
   );
 }
