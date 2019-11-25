@@ -50,17 +50,17 @@ $global-font-family: Montserrat, Lato, sans-serif;
       background: shade($color-pallet-5, 10);
     }
     a:last-child {
-      color: $color-pallet-3;
-      background: $color-pallet-6;
+      color: $color-pallet-6;
+      background: $color-pallet-3;
     }
     a:last-child:hover {
       text-decoration: none;
-      color: tint($color-pallet-3, 10);
-      background: tint($color-pallet-6, 10);
+      color: tint($color-pallet-6, 10);
+      background: tint($color-pallet-3, 10);
     }
     a:last-child:active {
-      color: shade($color-pallet-3, 10);
-      background: shade($color-pallet-6, 10);
+      color: shade($color-pallet-6, 10);
+      background: shade($color-pallet-3, 10);
     }
   }
   nav.user {
@@ -81,4 +81,70 @@ $global-font-family: Montserrat, Lato, sans-serif;
     // TODO:  Second Child Design, Reaction
     // TODO:  Third Child Design, Reaction
     // TODO:  Forth Child Design, Reaction
+}
+
+// Card
+.sp-card {
+  @extend .uk-card;
+  @extend .uk-card-body;
+  @extend .uk-card-default;
+}
+
+.sp-flex-center {
+  @extend .uk-flex;
+  @extend .uk-flex-center;
+  @extend .uk-flex-middle;
+}
+
+// Content to be displayed
+.sp-content {
+  @extend .uk-container-expand;
+  height: 100vh;
+  padding: 20px 0;
+  position: absolute;
+  width: 100%;
+  transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  h1 {
+    @extend .uk-h1;
+    @include font-smoothing;
+    text-align: center;
+    font-weight: bolder;
+  }
+}
+
+.sp-register {
+  color: $color-pallet-6;
+  background: $color-pallet-3;
+
+  h1 {
+    color: $color-pallet-6 !important;
+  }
+}
+
+.sp-login {
+  color: $color-pallet-3  ;
+  background: $color-pallet-5;
+
+  h1 {
+    color: $color-pallet-3 !important;
+  }
+
+  .sp-card {
+    color: $color-pallet-5;
+    background: $color-pallet-3;
+    box-shadow: 0 5px 15px rgba($color-pallet-3, .4);
+  }
+}
+
+.sp-content-enter {
+  transform: translateX(100%);
+}
+
+.sp-content-enter-active {
+  transform: translateX(0);
+}
+
+.sp-content-exit-active {
+  transform: translateX(-100%);
 }

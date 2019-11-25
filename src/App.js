@@ -4,7 +4,8 @@ import UIkit from 'uikit';
 import UkIcons from 'uikit/dist/js/uikit-icons.min';
 import './styles/App.scss';
 import NavBar from "./components/Navbar";
-import { BrowserRouter, } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
+import PageToDisplay from "./components/PageToDisplay";
 
 UIkit.use(UkIcons);
 window.UIkit = UIkit;
@@ -18,7 +19,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <NavBar isUserLoggedIn={isUser}/>
-        <PageToDisplay isUserLoggedIn={isUser}/>
+        <Route render={ ({ location }) => (
+          <PageToDisplay location={location} isUserLoggedIn={isUser} />
+        )} />
       </BrowserRouter>
     </div>
   );
