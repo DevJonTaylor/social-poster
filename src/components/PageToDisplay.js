@@ -9,7 +9,7 @@ function PageToDisplay(props) {
 
   return (
     <div className={'sp-page'}>
-      <Route exact={'/'} render={ () => <Redirect to={'/login'}/>} />
+      <Route exact={true} to={'/'} render={ () => <Redirect to={'/login'}/>} />
       <TransitionGroup>
         <CSSTransition key={props.location.key} timeout={700} classNames={'sp-content'}>
           <Switch location={props.location}>
