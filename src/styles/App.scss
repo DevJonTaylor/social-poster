@@ -8,6 +8,7 @@ $color-pallet-3: #fa6ef5;
 $color-pallet-4: #940e8c;
 $color-pallet-5: #531499;
 $color-pallet-6: #260962;
+
 $global-link-color: $color-pallet-1;
 $global-font-family: Montserrat, Lato, sans-serif;
 // 2. Import default variables and available mixins.
@@ -22,6 +23,9 @@ $global-font-family: Montserrat, Lato, sans-serif;
 
 // Custom Mixins
 @import "./Mixins/Custom";
+
+// Custom Functions
+@import 'Functions';
 
 // NavBar Setup
 .sp-nav {
@@ -83,17 +87,124 @@ $global-font-family: Montserrat, Lato, sans-serif;
     // TODO:  Forth Child Design, Reaction
 }
 
-// Card
-.sp-card {
-  @extend .uk-card;
-  @extend .uk-card-body;
-  @extend .uk-card-default;
+// Item Flex Center
+.sp-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.sp-flex-center {
-  @extend .uk-flex;
-  @extend .uk-flex-center;
-  @extend .uk-flex-middle;
+// Base Page Setup
+@mixin PageSetup($color1, $color2) {
+  color: $color1;
+  background: $color2;
+
+  h1 {
+    color: $color1 !important;
+  }
+
+  // Card
+  .sp-card {
+    @extend .uk-card;
+    @extend .uk-card-body;
+    @extend .uk-card-default;
+    color: $color2;
+    background: $color1;
+    box-shadow: 0 5px 15px rgba($color1, .4);
+  }
+
+  form {
+    .sp-input {
+      margin: 0 0 20px 0;
+      position: relative;
+      input {
+        @extend .uk-input;
+        @include placeholder {
+          color: shade($color2, 50);
+          font-size: small;
+          transition: font-size 250ms ease-in-out;
+        }
+        position: relative;
+        z-index: 999;
+        color: $color2;
+        background: transparent !important;
+        border: 0 solid transparent;
+        font-weight: 900;
+        transition: color 10ms 150ms ease-in-out;
+      }
+      span {
+        width: 100%;
+        height: 5px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 3em;
+        position: absolute;
+        background: $color2;
+        transition: all 250ms ease-in-out;
+      }
+      &.sp-form-icon {
+        .sp-icon {
+          position: absolute;
+          height: 1.5em;
+          width: 1.5em;
+          top: 17%;
+          left: 1%;
+          cursor: pointer;
+          color: $color2;
+          z-index: 1000;
+          transition: color 10ms 150ms ease-in-out;
+        }
+        input {
+          padding: 0 0 0 35px;
+        }
+      }
+      &.focus {
+        input {
+          color: $color1;
+          @include placeholder {
+            color: shade($color1, 50);
+            font-size: large;
+            transition: font-size 250ms ease-in-out;
+          }
+        }
+        .sp-icon {
+          color: $color1;
+        }
+        span {
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba($color2, .4);
+          height: 80%;
+          bottom: 10%;
+        }
+      }
+    }
+    .sp-button {
+      button {
+        @extend .uk-button;
+        @extend .uk-button-primary;
+        color: $color1;
+        background: $color2;
+        transition: all 250ms ease-in-out;
+        &:focus:not(:disabled), &:hover:not(:disabled) {
+          color: tint($color1, 10);
+          background: tint($color2, 10);
+          box-shadow: 0 5px 15px rgba($color2, .4);
+        }
+        &:active:not(:disabled) {
+          color: shade($color1, 10);
+          background: shade($color2, 10);
+          box-shadow: inset 0 5px 15px rgba($color1, .4);
+        }
+        &:disabled {
+          color: tint($color1, 30);
+          background: tint($color2, 30);
+          border: $color1 solid 1px;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
 }
 
 // Content to be displayed
@@ -107,34 +218,29 @@ $global-font-family: Montserrat, Lato, sans-serif;
 
   h1 {
     @extend .uk-h1;
-    @include font-smoothing;
     text-align: center;
     font-weight: bolder;
   }
+
+  &.sp-login {
+    .sp-container {
+      @extend .uk-grid;
+      @extend .sp-flex-center;
+      @extend .uk-child-width-1-3\@l;
+      @extend .uk-child-width-1-2\@m;
+      @extend .uk-child-width-1-1\@s;
+      @extend .uk-align-center;
+    }
+    @include PageSetup($color-pallet-3, $color-pallet-5);
+  }
+  &.sp-register {
+    @include PageSetup($color-pallet-6, $color-pallet-3);
+  }
+
 }
 
-.sp-register {
-  color: $color-pallet-6;
-  background: $color-pallet-3;
-
-  h1 {
-    color: $color-pallet-6 !important;
-  }
-}
-
-.sp-login {
-  color: $color-pallet-3  ;
-  background: $color-pallet-5;
-
-  h1 {
-    color: $color-pallet-3 !important;
-  }
-
-  .sp-card {
-    color: $color-pallet-5;
-    background: $color-pallet-3;
-    box-shadow: 0 5px 15px rgba($color-pallet-3, .4);
-  }
+.sp-1-2 {
+  @extend .uk-width-1-2;
 }
 
 .sp-content-enter {

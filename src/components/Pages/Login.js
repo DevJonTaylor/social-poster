@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Card from '../UiKit/Card';
+import { Form, User, Password, Submit } from '../UiKit/Form';
 
 function submitForm(event) {
   event.preventDefault();
@@ -8,17 +9,35 @@ function submitForm(event) {
 }
 
 export default function(props) {
-  // TODO:  Create Input Icon
-  // TODO:  View Password Button
-  // TODO:  Submit Button
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
+
+  function updateReady() {
+    let userIsReady = user !== '';
+    let passIsReady = pass !== '';
+    return (userIsReady && passIsReady);
+  }
+
+  function updateUser(value) {
+    setUser(value);
+    updateReady();
+  }
+
+  function updatePass(value) {
+    setPass(value);
+    updateReady();
+  }
+
   return (
     <div className={'sp-content sp-login'}>
       <h1 className={'sp-h1'}>LOGIN</h1>
-      <div className={'sp-flex-center uk-child-width-1-3'} uk-grid={''}>
+      <div className={'sp-container'}>
         <Card>
-          <form className={'uk-form'} onSubmit={submitForm}>
-            <input type={'text'} name={'blah'} className={'uk-input'}/>
-          </form>
+          <Form onSubmit={submitForm}>
+           <User get={user} set={updateUser} placeholder={'Username'} />
+           <Password get={pass} set={updatePass} placeholder={'Password'} />
+           <Submit text={'Login'} disabled={!updateReady()}/>
+          </Form>
         </Card>
       </div>
     </div>
