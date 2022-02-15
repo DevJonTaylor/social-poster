@@ -58,3 +58,5 @@ This will be a long term project and welcome all contributors and feel free to t
  * [ ] Setup Virtual Machine for ideal end-game server  
  * [ ] Design Login Process  
  * [ ] Design Registration Process
+
+## I am amazing! Take that JON!!!!!!
