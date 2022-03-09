@@ -42,7 +42,7 @@ export const SignMessage: FC = () => {
   return (
     <div>
       <form>
-        <input id="post" name="post" type="text" autoComplete="post" className="input input-bordered flex flex-col mx-auto mb-2 mt-4 w-60 max-w-xs" required />
+        <input id="post" name="post" type="text" placeholder="Nukey Nukables" className="input input-bordered flex flex-col mx-auto mb-2 mt-4 w-60 max-w-xs" required />
         <button
           className="group w-60 m-2 btn animate-pulse disabled:animate-none bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ... "
           onClick={onClick}

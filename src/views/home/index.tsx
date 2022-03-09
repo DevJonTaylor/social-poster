@@ -42,7 +42,7 @@ export const HomeView: FC = ({ }) => {
         </h4>
         <div className="max-w-md mx-auto mockup-code bg-primary p-6 my-2">
           <pre data-prefix=">">
-            <code className="truncate">Create nuke-ready posts  </code>
+            <code className="truncate">Automate nuke-ready social media content  </code>
           </pre>
         </div>
           <div className="text-center">
